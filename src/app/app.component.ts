@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { TestsupaComponent } from './testsupa/testsupa.component';
+import { TidbitCreateComponent } from './tidbit-create/tidbit-create.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [TestsupaComponent],
+  imports: [TidbitCreateComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
