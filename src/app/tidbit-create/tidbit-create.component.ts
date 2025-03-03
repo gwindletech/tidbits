@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, ViewChild } from '@angular/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -7,7 +7,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { SupabaseService } from '../services/supabase.service';
-import { Tidbit } from '../types/tidbit.interface';
+import { TidbitService } from '../services/tidbit.service';
+import { FormGroupDirective } from '@angular/forms';
 
 @Component({
   selector: 'app-tidbit-create',
@@ -18,10 +19,13 @@ import { Tidbit } from '../types/tidbit.interface';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TidbitCreateComponent {
-
-  test = signal<Tidbit>({title: '', content: '', tags: ''});
+  @ViewChild(FormGroupDirective)
+  formGroupDirective!: FormGroupDirective;
 
   supabaseService = inject(SupabaseService);
+  tidbitService = inject(TidbitService);
+
+  tidbits = this.tidbitService.tidbits;
 
   tidbitForm: FormGroup;
 
@@ -35,8 +39,8 @@ export class TidbitCreateComponent {
 
   onSubmit() {
     this.supabaseService.addTidbit({ title: this.tidbitForm.value.title, content: this.tidbitForm.value.content, tags: this.tidbitForm.value.tags }).subscribe((tidbit) => {
-      console.log("Created tidbit: ", tidbit);
-      this.test.set(tidbit);
+      this.tidbitService.tidbits.set([...this.tidbits(), tidbit]);
+      this.formGroupDirective.resetForm();
     });
   }
 }
