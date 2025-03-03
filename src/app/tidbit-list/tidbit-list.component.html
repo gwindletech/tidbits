@@ -1,3 +1,8 @@
-<div *ngFor="let tidbit of tidbits()">
-<p>{{ tidbit.title }}</p>
-</div>
+<mat-accordion>
+    <mat-expansion-panel hideToggle *ngFor="let tidbit of tidbits()">
+        <mat-expansion-panel-header>
+            <mat-panel-title>{{ tidbit.title }}</mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>{{ tidbit.content }}</p>
+    </mat-expansion-panel>
+</mat-accordion>
