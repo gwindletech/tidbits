@@ -25,4 +25,9 @@ export class SupabaseService {
     const promise = this.supabase.from('tidbits').select('*');
     return from(promise).pipe(map((response) => response.data!));
   }
+
+  deleteTidbit(id: any): Observable<Tidbit> {
+    const promise = this.supabase.from('tidbits').delete().eq('id', id).select('*').single();
+    return from(promise).pipe(map((response) => response.data));
+  }
 }

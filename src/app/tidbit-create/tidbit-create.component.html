@@ -1,26 +1,28 @@
-<form [formGroup]="tidbitForm" (ngSubmit)="onSubmit()">
-    <div>
-        <mat-form-field>
-            <mat-label>Title</mat-label>
-            <input matInput formControlName="title">
-        </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field>
-            <mat-label>Content</mat-label>
-            <textarea matInput formControlName="content"></textarea>
-        </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field>
-            <mat-label>Tags</mat-label>
-            <input matInput formControlName="tags">
-        </mat-form-field>
-    </div>
-    <div class="example-button-container">
-        <button mat-fab extended type="submit">
-            <mat-icon>add</mat-icon>
-            Add
-        </button>
-    </div>
-</form>
+<div class="sub-container">
+    <form [formGroup]="tidbitForm" (ngSubmit)="onSubmit()">
+        <div>
+            <mat-form-field>
+                <mat-label>Title</mat-label>
+                <input matInput formControlName="title">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Content</mat-label>
+                <textarea matInput formControlName="content"></textarea>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Tags</mat-label>
+                <input matInput formControlName="tags">
+            </mat-form-field>
+        </div>
+        <div class="example-button-container">
+            <button mat-fab extended type="submit">
+                <mat-icon>add</mat-icon>
+                Add
+            </button>
+        </div>
+    </form>
+</div>
