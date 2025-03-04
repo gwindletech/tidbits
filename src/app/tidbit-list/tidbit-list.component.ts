@@ -28,7 +28,7 @@ export class TidbitListComponent implements OnInit {
     })
   }
 
-  deleteTidbit(id: any) {
+  deleteTidbit(id: number) {
     this.tidbitService.deleteTidbit(id);
   }
 }

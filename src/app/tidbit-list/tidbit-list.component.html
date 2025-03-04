@@ -2,15 +2,19 @@
     <mat-accordion>
         <mat-expansion-panel *ngFor="let tidbit of tidbits()">
             <mat-expansion-panel-header>
-                <mat-panel-title>{{ tidbit.title }}</mat-panel-title>
+                <mat-panel-title>
+                    <div>
+                        {{ tidbit.title }}
+                    </div>
+                </mat-panel-title>
                 <mat-panel-description>
-                    <mat-chip-set aria-label="Fish selection">
-                        <mat-chip>{{ tidbit.tags }}</mat-chip>
+                    <mat-chip-set aria-label="Tags" class="mdc-evolution-chip-set__chips">
+                        <mat-chip *ngFor="let tag of tidbit.tags">{{ tag }}</mat-chip>
                     </mat-chip-set>
                 </mat-panel-description>
             </mat-expansion-panel-header>
             <p>{{ tidbit.content }}</p>
-            <button mat-fab aria-label="Icon button with a delete icon" (click)="deleteTidbit(tidbit.id)">
+            <button mat-fab aria-label="Icon button with a delete icon" (click)="deleteTidbit(tidbit.id!)">
                 <mat-icon>delete</mat-icon>
             </button>
         </mat-expansion-panel>

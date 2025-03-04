@@ -38,7 +38,9 @@ export class TidbitCreateComponent {
   }
 
   onSubmit() {
-    this.supabaseService.addTidbit({ title: this.tidbitForm.value.title, content: this.tidbitForm.value.content, tags: this.tidbitForm.value.tags }).subscribe((tidbit) => {
+    const tagsToSplit: string = this.tidbitForm.value.tags;
+    const tagsArray: string[] = tagsToSplit ? tagsToSplit.split(',').map((tag: string) => tag.trim()) : [];
+    this.supabaseService.addTidbit({ title: this.tidbitForm.value.title, content: this.tidbitForm.value.content, tags: tagsArray }).subscribe((tidbit) => {
       this.tidbitService.tidbits.set([...this.tidbits(), tidbit]);
       this.formGroupDirective.resetForm();
     });

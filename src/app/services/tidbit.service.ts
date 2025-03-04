@@ -11,10 +11,9 @@ export class TidbitService {
 
   supabaseService = inject(SupabaseService);
 
-  deleteTidbit(id: any) {
+  deleteTidbit(id: number) {
     this.supabaseService.deleteTidbit(id).subscribe((tidbit) => {
       this.tidbits.set(this.tidbits().filter((t) => t.id !== tidbit.id));
     });
   }
-
 }

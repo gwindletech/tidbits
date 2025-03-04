@@ -17,7 +17,7 @@ body {
 }
 
 .sub-container {
-    width: 300px;
+    width: 600px;
     margin-top: 20px;
     margin-left: 10px;
     margin-right: 10px;
@@ -26,3 +26,18 @@ body {
 mat-form-field {
     width: 100%;
 }
+
+// Stops chips from wrapping when there are too many of them
+.mdc-evolution-chip-set__chips {
+    flex-wrap: nowrap !important;
+}
+
+// Adds ellipsis to the expansion panel title if too long
+.mat-expansion-panel-header-title > div {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+
