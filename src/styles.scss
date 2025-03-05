@@ -21,6 +21,7 @@ body {
     margin-top: 20px;
     margin-left: 10px;
     margin-right: 10px;
+    margin-bottom: 50px;
 }
 
 mat-form-field {
@@ -33,12 +34,26 @@ mat-form-field {
 }
 
 // Adds ellipsis to the expansion panel title if too long
-.mat-expansion-panel-header-title>div {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+.mat-expansion-panel-header-title {
+    flex: 0 0 auto; /* makes this not grow and shrink */
+    min-width: 0; /* Google why this is needed */
+    margin-right: 16px;
 }
 
-mat-toolbar {
-    height: 75px !important;
+.mat-expansion-panel-header-title > div {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.mat-expansion-panel-header-description {
+    flex: 1 1 auto; /* makes this grow and shrink */
+    min-width: 0; /* Google why this is needed */
+    margin-right: 16px;
+}
+
+.mat-expansion-panel-header-description > div {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }

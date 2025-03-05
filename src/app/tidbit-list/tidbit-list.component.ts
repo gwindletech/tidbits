@@ -3,15 +3,16 @@ import { SupabaseService } from '../services/supabase.service';
 import { TidbitService } from '../services/tidbit.service';
 import { CommonModule } from '@angular/common';
 import { MatExpansionModule } from '@angular/material/expansion';
-import {MatChipsModule} from '@angular/material/chips';
-import {MatIconModule} from '@angular/material/icon';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatButtonModule} from '@angular/material/button';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatButtonModule } from '@angular/material/button';
+import { TagSearchFieldComponent } from '../tag-search-field/tag-search-field.component';
 
 @Component({
   selector: 'app-tidbit-list',
   standalone: true,
-  imports: [CommonModule, MatExpansionModule, MatChipsModule, MatButtonModule, MatDividerModule, MatIconModule],
+  imports: [CommonModule, MatExpansionModule, MatChipsModule, MatButtonModule, MatDividerModule, MatIconModule, TagSearchFieldComponent],
   templateUrl: './tidbit-list.component.html',
   styleUrl: './tidbit-list.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

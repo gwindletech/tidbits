@@ -30,4 +30,9 @@ export class SupabaseService {
     const promise = this.supabase.from('tidbits').delete().eq('id', id).select('*').single();
     return from(promise).pipe(map((response) => response.data));
   }
+
+  getFilteredTidbits(tags: string[]): Observable<Tidbit[]> {
+    const promise = this.supabase.from('tidbits').select('*').contains('tags', tags);
+    return from(promise).pipe(map((response) => response.data!));
+  }
 }
