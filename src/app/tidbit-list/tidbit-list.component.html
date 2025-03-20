@@ -11,7 +11,13 @@
                 <mat-panel-description class="mat-expansion-panel-header-description">
                     <div>
                         <mat-chip-set aria-label="Tags" class="mdc-evolution-chip-set__chips">
-                            <mat-chip *ngFor="let tag of tidbit.tags">{{ tag }}</mat-chip>
+                            @for (tag of tidbit.tags; track $index) {
+                            @if ($index < 3 ){ <mat-chip>{{ tag }}</mat-chip>
+                                }
+                                }
+                                @if (tidbit.tags!.length >= 4) {
+                                <mat-chip>...</mat-chip>
+                                }
                         </mat-chip-set>
                     </div>
                 </mat-panel-description>
