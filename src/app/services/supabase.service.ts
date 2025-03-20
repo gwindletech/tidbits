@@ -15,6 +15,10 @@ export class SupabaseService {
     this.supabase = createClient(environment.supabaseUrl, environment.supabaseAnonKey);
   }
 
+  get client() {
+    return this.supabase;
+  }
+
   addTidbit(tidbit: Tidbit): Observable<Tidbit> {
     console.log(tidbit);
     const promise = this.supabase.from('tidbits').insert(tidbit).select('*').single();
@@ -35,4 +39,5 @@ export class SupabaseService {
     const promise = this.supabase.from('tidbits').select('*').contains('tags', tags);
     return from(promise).pipe(map((response) => response.data!));
   }
+
 }
