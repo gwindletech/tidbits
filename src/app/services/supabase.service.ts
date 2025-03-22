@@ -11,7 +11,7 @@ export class SupabaseService {
 
   constructor() {
     // Initialize Supabase client using environment variables
-    this.supabase = createClient(process.env['SUPABASE_URL'], process.env['SUPABASE_ANON_KEY']);
+    this.supabase = createClient(process.env['SUPABASE_URL'] as string, process.env['SUPABASE_ANON_KEY'] as string);
   }
 
   get client() {
