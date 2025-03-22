@@ -8,14 +8,18 @@ import { Tidbit } from '../interfaces/tidbit.interface';
 })
 export class SupabaseService {
   private supabase: SupabaseClient;
-  supabaseUrl: string = process.env['SUPABASE_URL'];
-  supabaseKey: string = process.env['SUPABASE_KEY'];
+  supabaseUrl: string;
+  supabaseKey: string;
 
   constructor() {
-    // Initialize Supabase client using environment variables
-    this.supabase = createClient(supabaseUrl, supabaseKey);
-  }
+    // Set environment variables with fallback to empty string if undefined
+    this.supabaseUrl = process.env['SUPABASE_URL'] ?? '';
+    this.supabaseKey = process.env['SUPABASE_KEY'] ?? '';
 
+    // Initialize Supabase client using environment variables
+    this.supabase = createClient(this.supabaseUrl, this.supabaseKey);
+  }
+  
   get client() {
     return this.supabase;
   }
