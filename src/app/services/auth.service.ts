@@ -12,19 +12,6 @@ export class AuthService {
 
   currentUser = signal<{ email: string, username: string} | null>(null);
 
-  register(email: string, username: string, password: string): Observable<AuthResponse> {
-    const promise = this.supabaseService.client.auth.signUp({
-      email,
-      password,
-      options: {
-        data: {
-          username
-        }
-      }
-    });
-    return from(promise);
-  }
-
   login(email: string, password: string): Observable<AuthResponse> {
     const promise = this.supabaseService.client.auth.signInWithPassword({
       email,

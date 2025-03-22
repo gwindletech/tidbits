@@ -1,9 +1,9 @@
-import {LiveAnnouncer} from '@angular/cdk/a11y';
-import {COMMA, ENTER} from '@angular/cdk/keycodes';
-import {ChangeDetectionStrategy, Component, computed, inject, signal} from '@angular/core';
-import {MatChipEditedEvent, MatChipInputEvent, MatChipsModule} from '@angular/material/chips';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatIconModule} from '@angular/material/icon';
+import { LiveAnnouncer } from '@angular/cdk/a11y';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import { MatChipEditedEvent, MatChipInputEvent, MatChipsModule } from '@angular/material/chips';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 import { SupabaseService } from '../services/supabase.service';
 import { TidbitService } from '../services/tidbit.service';
 import { effect } from '@angular/core';
@@ -43,7 +43,7 @@ export class TagSearchFieldComponent {
 
     // Add our tag
     if (value) {
-      this.tags.update(tags => [...tags, {name: value}]);
+      this.tags.update(tags => [...tags, { name: value }]);
     }
 
     // Clear the input value
