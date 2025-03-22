@@ -13,8 +13,8 @@ export class SupabaseService {
 
   constructor() {
     // Set environment variables with fallback to empty string if undefined
-    this.supabaseUrl = process.env.SUPABASE_URL ?? '';
-    this.supabaseKey = process.env.SUPABASE_KEY ?? '';
+    this.supabaseUrl = process.env['SUPABASE_URL'] ?? '';
+    this.supabaseKey = process.env['SUPABASE_KEY'] ?? '';
 
     // Initialize Supabase client using environment variables
     this.supabase = createClient(this.supabaseUrl, this.supabaseKey);
