@@ -1,5 +1,23 @@
+@if (authService.currentUser() === null) {
+<div>
+    <a routerLink="/login">Login</a>
+    <a routerLink="/register">Register</a>
+</div>
+}
+
+
+@if (authService.currentUser()) {
 <app-toolbar></app-toolbar>
 <div class="main-container">
     <app-tidbit-create></app-tidbit-create>
     <app-tidbit-list></app-tidbit-list>
 </div>
+<div>
+    <h2>Current User: {{ authService.currentUser()?.username }}</h2>
+</div>
+<div>
+    <button (click)="logout()">Logout</button>
+</div>
+}
+
+<router-outlet></router-outlet>
