@@ -8,12 +8,5 @@
     <app-tidbit-create></app-tidbit-create>
     <app-tidbit-list></app-tidbit-list>
 </div>
-<div>
-    <h2>Current User: {{ authService.currentUser()?.username }}</h2>
-</div>
-<div>
-    <button (click)="logout()">Logout</button>
-</div>
 }
-
 <router-outlet></router-outlet>
