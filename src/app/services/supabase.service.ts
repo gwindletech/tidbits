@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
-import { environment } from '../../env';
 import { from, map, Observable } from 'rxjs';
 import { Tidbit } from '../interfaces/tidbit.interface';
 
@@ -12,7 +11,7 @@ export class SupabaseService {
 
   constructor() {
     // Initialize Supabase client using environment variables
-    this.supabase = createClient(environment.supabaseUrl, environment.supabaseAnonKey);
+    this.supabase = createClient(process.env['SUPABASE_URL'], process.env['SUPABASE_ANON_KEY']);
   }
 
   get client() {
