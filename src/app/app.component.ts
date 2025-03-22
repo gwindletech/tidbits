@@ -5,11 +5,12 @@ import { TidbitCreateComponent } from './tidbit-create/tidbit-create.component';
 import { TidbitListComponent } from './tidbit-list/tidbit-list.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { CommonModule } from '@angular/common';
+import { LoginComponent } from './login/login.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [TidbitCreateComponent, TidbitListComponent, ToolbarComponent, CommonModule, RouterLink, RouterOutlet],
+  imports: [TidbitCreateComponent, TidbitListComponent, ToolbarComponent, CommonModule, RouterLink, RouterOutlet, LoginComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

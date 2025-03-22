@@ -1,9 +1,6 @@
 @if (authService.currentUser() === null) {
-<div>
-    <a routerLink="/login">Login</a>
-</div>
+<app-login></app-login>
 }
-
 
 @if (authService.currentUser()) {
 <app-toolbar></app-toolbar>
