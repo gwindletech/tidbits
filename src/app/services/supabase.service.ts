@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
-import { environment } from '../../environment';
+import { environment } from '../../env';
 import { from, map, Observable } from 'rxjs';
 import { Tidbit } from '../interfaces/tidbit.interface';
 
