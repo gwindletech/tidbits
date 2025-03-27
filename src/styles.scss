@@ -1,4 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
+button {
+    @include mat.button-overrides((
+        container-color: none,
+        label-text-color: none,
+      ));
+  }
 
 html,
 body {
@@ -57,3 +64,4 @@ mat-form-field {
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+
