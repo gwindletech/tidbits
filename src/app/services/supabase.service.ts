@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 import { from, map, Observable } from 'rxjs';
 import { Tidbit } from '../interfaces/tidbit.interface';
+import { environment } from '../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
@@ -13,8 +14,8 @@ export class SupabaseService {
 
   constructor() {
     // Set environment variables with fallback to empty string if undefined
-    this.supabaseUrl = process.env['SUPABASE_URL'] ?? '';
-    this.supabaseKey = process.env['SUPABASE_KEY'] ?? '';
+    this.supabaseUrl = environment.supabaseUrl;
+    this.supabaseKey = environment.supabaseAnonKey;
 
     // Initialize Supabase client using environment variables
     this.supabase = createClient(this.supabaseUrl, this.supabaseKey);
